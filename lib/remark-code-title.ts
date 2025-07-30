@@ -27,9 +27,9 @@ interface TextNode extends Node {
 
 export default function remarkCodeTitles() {
   return (tree: Node) =>
-    visit(tree, 'code', (node: CodeNode, index: number | null, parent: Parent) => {
-      // Skip if index is null
-      if (index === null) return
+    visit(tree, 'code', (node: CodeNode, index: number | null, parent: Parent | null) => {
+      // Skip if index or parent is null
+      if (index === null || !parent) return
       
       const nodeLang = node.lang || ''
       let language = ''
