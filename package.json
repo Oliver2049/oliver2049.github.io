@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:ai": "pnpm dev",
-    "build": "rm **/**/.DS_Store; cross-env NODE_ENV=production CI=false GENERATE_SOURCEMAP=true next build && tsx ./scripts/generate-sitemap.ts",
+    "build": "cross-env NODE_ENV=production CI=false GENERATE_SOURCEMAP=true next build && tsx ./scripts/generate-sitemap.ts",
     "serve": "next start",
     "build-images": "next-image-export-optimizer",
     "analyze": "cross-env ANALYZE=true next build",
