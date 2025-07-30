@@ -30,7 +30,7 @@ export default function remarkCodeTitles() {
     visit(tree, 'code', (node: CodeNode, index: number | null, parent: Parent | null) => {
       // Skip if index or parent is null
       if (index === null || !parent) return
-      
+
       const nodeLang = node.lang || ''
       let language = ''
       let title = ''

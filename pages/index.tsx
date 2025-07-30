@@ -32,7 +32,7 @@ export default function Home({ posts }: HomeProps): React.ReactNode {
 
   useEffect(() => {
     if (!el.current) return
-    
+
     const typed = new Typed(el.current, {
       strings: [
         'Oliver',

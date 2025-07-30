@@ -39,7 +39,7 @@ My cybersecurity toolkit includes:
 - **Digital Forensics**: Volatility, Autopsy, Wireshark
 - **Scripting**: Python, Bash, PowerShell
 - **Operating Systems**: Linux (Kali, Ubuntu), Windows
-- **Cloud Security**: Basic AWS security concepts
+- **Cloud Security**: Basic Azure security concepts
 - **Network Security**: Firewall configuration, IDS/IPS
 
 ### This Blog
