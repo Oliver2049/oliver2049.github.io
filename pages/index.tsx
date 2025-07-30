@@ -31,6 +31,8 @@ export default function Home({ posts }: HomeProps): React.ReactNode {
   const el = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
+    if (!el.current) return
+    
     const typed = new Typed(el.current, {
       strings: [
         'Oliver',
