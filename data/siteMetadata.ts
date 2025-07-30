@@ -1,29 +1,29 @@
 import { SiteMetadata } from '@/types/siteMetadata'
 
 const siteMetadata: SiteMetadata = {
-  title: 'Tailblaze',
-  author: 'Your Name',
-  headerTitle: 'Tailblaze',
+  title: "Oliver's Cyber Station",
+  author: 'Oliver',
+  headerTitle: "Oliver's Cyber Station",
   description:
-    'A modern, feature-rich blog theme built with Next.js and Tailwind CSS. Original theme by Viet-Anh Nguyen.',
-  notes: 'Short notes and quick references',
+    'A dedicated passionate security analyst with a strong passion for penetration testing and system hardening. My goal is to study and analyse cyber threats and mitigate them through hands-on security testing, and threat analysis.',
+  notes:
+    'This is a personal blog where I share my knowledge and experiences in cybersecurity, penetration testing, and system hardening.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailblaze.vietanh.dev',
-  siteRepo: 'https://github.com/yourusername/tailblaze',
-  siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.png',
+  siteUrl: 'https://oliver2049.github.io',
+  siteRepo: 'https://github.com/oliver2049/oliver2049.github.io',
+  siteLogo: '/CyberStation.png',
+  image: '/avatar.jpg',
   socialBanner: '/static/images/banner.png',
-  email: 'hello@example.com',
-  github: 'https://github.com/yourusername',
-  twitter: 'https://twitter.com/yourusername',
-  linkedin: 'https://www.linkedin.com/in/yourusername/',
-  website: 'https://example.com',
+  email: 'oliverdoan3001@gmail.com',
+  github: 'https://github.com/Oliver2049',
+  twitter: 'https://x.com/MinhTinon4',
+  linkedin: 'https://www.linkedin.com/in/oliver-doan/',
+  website: 'https://oliver2049.github.io',
   locale: 'en-US',
-  keywords:
-    'blog, nextjs, tailwindcss, theme, template, markdown, mdx, static site, viet-anh nguyen',
+  keywords: 'cybersecurity, penetration testing, system hardening, security analyst, Oliver Doan',
   analytics: {
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: '',
   },
   newsletter: {
     provider: process.env.MAILCHIMP_URL,
@@ -34,7 +34,7 @@ const siteMetadata: SiteMetadata = {
       shortname: 'tailblaze',
     },
     utterancesConfig: {
-      repo: 'yourusername/tailblaze',
+      repo: 'oliver2049/oliver2049.github.io',
       issueTerm: 'pathname',
       label: 'Comment',
       theme: 'github-light',
@@ -42,12 +42,12 @@ const siteMetadata: SiteMetadata = {
     },
   },
   socialAccount: {
-    twitter: 'yourusername',
+    twitter: '@MinhTinon4',
   },
   credit: {
-    author: 'Viet-Anh Nguyen',
-    website: 'https://www.vietanh.dev',
-    github: 'https://github.com/vietanhdev',
+    author: 'Oliver Doan',
+    website: 'https://oliver2049.github.io',
+    github: 'https://github.com/Oliver2049',
   },
 }
 

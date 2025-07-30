@@ -1,52 +1,60 @@
 ---
-name: Tailblaze Team
-avatar: https://api.dicebear.com/7.x/bottts/png?seed=Tailblaze&size=200
-occupation: Web Developer & Designer
-company: Tailblaze
-email: hello@tailblaze.com
-twitter: https://twitter.com/yourusername
-linkedin: https://www.linkedin.com/in/yourusername
-github: https://github.com/yourusername
+name: Oliver Doan
+avatar: public/avatar.jpg
+occupation: Offensive Security
+company:
+email: oliverdoan3001@gmail.com
+twitter: https://x.com/MinhTinon4
+linkedin: https://www.linkedin.com/in/oliver-doan/
+github: https://github.com/Oliver2049
 ---
 
-## About Tailblaze
+## About Me
 
-Tailblaze is a modern, feature-rich blog theme built with Next.js and Tailwind CSS. It's designed to provide content creators with a powerful yet easy-to-use platform for sharing their thoughts, tutorials, and insights with the world.
+Hello! I'm Oliver, a passionate security analyst with a strong dedication to cybersecurity, penetration testing, and system hardening. Currently pursuing my studies in cybersecurity while gaining hands-on experience in the field.
 
-Original theme created by [Viet-Anh Nguyen](https://www.vietanh.dev).
+### My Journey
 
-### Our Mission
+My path into cybersecurity began with a curiosity about how systems work and how they can be protected. Through my studies at Deakin University and various personal projects, I've developed skills in:
 
-We created Tailblaze with the goal of making it easy for developers, writers, and content creators to build beautiful blogs without having to worry about the technical details. Our focus is on providing a great user experience, both for the blog owner and their readers.
+- **Penetration Testing**: Identifying vulnerabilities in web applications and networks
+- **Digital Forensics**: Analyzing digital evidence and incident response
+- **System Hardening**: Implementing security best practices and defensive measures
+- **Threat Analysis**: Understanding attack vectors and developing mitigation strategies
 
-### Key Features
+### What I Do
 
-- **Beautiful, responsive design** that looks great on all devices
-- **Dark mode** support with easy toggling
-- **SEO optimized** with customizable metadata
-- **MDX support** for interactive content
-- **Code syntax highlighting** for technical blog posts
-- **Fast static page generation** with Next.js
-- **Image optimization** for better performance
-- **Newsletter subscription** integration
-- **Comment system** with multiple provider options
-- **Analytics** integration options
+I'm currently focused on:
 
-### Technology Stack
+- **Security Research**: Exploring new vulnerabilities and attack techniques
+- **Capture The Flag (CTF)**: Participating in cybersecurity competitions to sharpen my skills
+- **Personal Projects**: Building tools and documenting my learning journey
+- **Knowledge Sharing**: Writing about cybersecurity topics and sharing insights with the community
 
-Tailblaze is built with the latest technologies to provide the best experience for developers and users:
+### Technical Skills
 
-- **Next.js**: React framework for production
-- **React**: Component-based UI library
-- **Tailwind CSS**: Utility-first CSS framework
-- **TypeScript**: Type-safe JavaScript
-- **MDX**: Markdown for the component era
-- **ShadCN UI**: Beautifully designed components
+My cybersecurity toolkit includes:
 
-### Getting Started
+- **Penetration Testing**: Burp Suite, OWASP ZAP, Metasploit, Nmap
+- **Digital Forensics**: Volatility, Autopsy, Wireshark
+- **Scripting**: Python, Bash, PowerShell
+- **Operating Systems**: Linux (Kali, Ubuntu), Windows
+- **Cloud Security**: Basic AWS security concepts
+- **Network Security**: Firewall configuration, IDS/IPS
 
-Setting up your Tailblaze blog is simple. Check out our [getting started guide](/blog/getting-started-with-tailblaze) to learn how to set up your own blog in minutes.
+### This Blog
 
-### Support
+I created Oliver's Cyber Station as a place to document my cybersecurity journey, share knowledge, and connect with the community. Here you'll find:
 
-If you need help setting up or customizing your Tailblaze blog, feel free to reach out to us through our [GitHub repository](https://github.com/yourusername/tailblaze) or by email at [hello@tailblaze.com](mailto:hello@tailblaze.com).
+- Technical write-ups and tutorials
+- CTF walkthroughs and learning experiences
+- Security research and vulnerability analysis
+- Personal projects and tools I've developed
+
+### Get In Touch
+
+I'm always interested in connecting with fellow cybersecurity enthusiasts, students, and professionals. Feel free to reach out through any of the social links above or drop me an email!
+
+---
+
+_This site is built with the [Tailblaze theme](https://github.com/Vietanh30/tailblaze) by Viet-Anh Nguyen._

@@ -12,7 +12,7 @@ const headerNavLinks: NavLink[] = [
   { href: '/tags', title: 'Tags', ariaLabel: 'Tags' },
   { href: '/contact', icon: Mail, ariaLabel: 'Contact Me' },
   {
-    href: 'https://github.com/vietanhdev/tailblaze',
+    href: 'https://github.com/Oliver2049',
     title: 'Github',
     icon: SiGithub,
     external: true,

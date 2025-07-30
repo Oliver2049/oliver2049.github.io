@@ -5,9 +5,9 @@ export interface AboutMeData {
   avatar: any
   bio: string
   skills: string[]
-  founder: string
-  founderLink: string
   linkedin: string
   linkedinLink: string
   sideProjects: string
+  graduation: string
+  graduationYear: number
 }

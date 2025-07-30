@@ -8,16 +8,14 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import kebabCase from 'lib/utils/kebabCase'
 import ExportedImage from 'next-image-export-optimizer'
-import mockCodingStats from '@/data/mockCodingStats'
 import { GetStaticProps } from 'next'
 import React from 'react'
-import { FrontMatter, CodingStats, convertToFrontMatters } from '../types'
+import { FrontMatter, convertToFrontMatters } from '../types'
 
 const MAX_DISPLAY = 6
 
 interface HomeProps {
   posts: FrontMatter[]
-  codingStats: CodingStats
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
@@ -26,18 +24,21 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   // Convert MDXFrontMatter to required FrontMatter format
   const posts = convertToFrontMatters(mdxPosts)
 
-  // Use mock data directly
-  const codingStats = mockCodingStats
-
-  return { props: { posts, codingStats } }
+  return { props: { posts } }
 }
 
-export default function Home({ posts, codingStats }: HomeProps): React.ReactNode {
+export default function Home({ posts }: HomeProps): React.ReactNode {
   const el = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ['John Doe', 'a Developer', 'a Creator', 'a Tech Writer', 'an Innovator'],
+      strings: [
+        'Oliver',
+        'a Penetration Tester',
+        'a SOC Analyst',
+        'a Tech Writer',
+        'a Cybersecurity Enthusiast',
+      ],
       startDelay: 300,
       typeSpeed: 25,
       backSpeed: 10,
@@ -61,22 +62,23 @@ export default function Home({ posts, codingStats }: HomeProps): React.ReactNode
               Hi! I am <span ref={el} className="text-indigo-600"></span>
             </h2>
             <h2 className="text-md mb-4 hidden text-gray-600 sm:block sm:text-2xl">
-              Welcome to My Tech Blog!
+              Welcome to Oliver's Cyber Station!
             </h2>
             <h2 className="prose pt-5 text-sm text-gray-700 md:text-lg">
               <span className="float-left mr-4">
                 <ExportedImage
                   width={128}
                   height={128}
-                  className="mt-0 h-20 w-20 rounded-full shadow-lg md:h-36 md:w-36 mr-4"
-                  alt="John Doe"
-                  src={'https://ui-avatars.com/api/?name=John+Doe&background=random'}
+                  className="mt-0 h-20 w-20 rounded-full shadow-lg border-4 border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-xl md:h-36 md:w-36 mr-4"
+                  alt="Oliver"
+                  src={'/Oliverchill.png'}
                   blurDataURL="/images/SVG-placeholder.png"
                   placeholder="blur"
                 />
               </span>
-              This is my personal blog where I share insights about Web Development, Cloud
-              Computing, DevOps practices, and Technology trends.
+              This is my personal blog where I share and capture my insights on various topics
+              relating to Capture The Flag (CTF) engagements from Offsec Proving Ground, HackTheBox,
+              and TryHackMe plus other cyber security platforms.
             </h2>
             <div>
               <div className="mt-8 text-slate-600">

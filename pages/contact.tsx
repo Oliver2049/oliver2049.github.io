@@ -13,7 +13,7 @@ const Contact = (): React.ReactNode => {
               Send me a message
             </h2>
             <p className="mb-8 text-center font-light text-gray-500 sm:text-xl lg:mb-16">
-              Using below contact form to send Viet Anh a message.
+              Using below contact form to send Oliver a message.
             </p>
             <form action="https://formspree.io/f/mnqyaezo" method="POST" className="space-y-8">
               <div>
@@ -25,7 +25,7 @@ const Contact = (): React.ReactNode => {
                   id="name"
                   name="name"
                   className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-sm text-gray-900 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-                  placeholder="John Doe"
+                  placeholder="Your Name"
                   required
                 ></input>
               </div>

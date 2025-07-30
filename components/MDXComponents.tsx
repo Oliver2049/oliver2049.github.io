@@ -6,8 +6,6 @@ import Image from './Image'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
-import LiteYouTubeEmbed from 'react-lite-youtube-embed'
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 import dynamic from 'next/dynamic'
 import Gist from './Gist'
 
@@ -27,7 +25,6 @@ export const MDXComponents: MDXComponentsType = {
   TOCInline,
   pre: ({ children, ...props }) => <Pre {...props}>{children}</Pre>,
   BlogNewsletterForm: BlogNewsletterForm,
-  Youtube: LiteYouTubeEmbed,
   Gist,
   wrapper: ({ layout, ...rest }: WrapperProps) => {
     const Layout = dynamic(() => import(`../layouts/${layout}`), {

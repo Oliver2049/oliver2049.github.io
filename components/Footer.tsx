@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { useRef, useEffect } from 'react'
-import logo from 'public/logo.png'
-import Image from 'next-image-export-optimizer'
+import FlippingLogo from './FlippingLogo'
 
 const currentYear = new Date().getFullYear()
 
@@ -19,13 +18,11 @@ export default function Footer() {
   return (
     <footer>
       <div className="mt-20 mb-20 flex flex-col items-center">
-        <Image
-          src={logo}
-          alt="Viet-Anh on Software Logo"
-          width={32}
-          height={32}
-          className="mb-3 h-16 w-16 grayscale hover:!grayscale-0 transition duration-300"
-          placeholder="blur"
+        <FlippingLogo
+          sizeClass="h-16 w-16"
+          className="mb-3 grayscale hover:!grayscale-0 transition duration-300"
+          href="#top"
+          ariaLabel="Back to top"
         />
         <div className="hidden text-sm text-gray-700 md:flex">
           <div className="mx-1">

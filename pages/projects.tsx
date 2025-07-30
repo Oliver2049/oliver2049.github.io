@@ -17,7 +17,7 @@ export default function Projects(): React.ReactNode {
             Projects
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Showcase of my works on machine learning and software engineering.
+            Showcase of my works on cybersecurity, penetration testing, and digital forensics.
           </p>
         </div>
         <div className="container py-5">

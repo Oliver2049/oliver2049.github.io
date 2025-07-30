@@ -52,18 +52,14 @@ export default function AuthorLayout({ frontMatter }: AuthorLayoutProps) {
                 <strong>Skills:</strong> {aboutMeData.skills.join(', ')}.
               </li>
               <li>
-                <strong>Founder of</strong>{' '}
-                <a href={aboutMeData.founderLink} rel="noreferrer" target="_blank">
-                  {aboutMeData.founder}
-                </a>
-                .
+                <strong>Graduation:</strong>
+                {aboutMeData.graduation} ({aboutMeData.graduationYear})
               </li>
               <li>
                 <strong>LinkedIn:</strong>{' '}
                 <a href={aboutMeData.linkedinLink} rel="noreferrer" target="_blank">
                   {aboutMeData.linkedin}
                 </a>
-                .
               </li>
               <li>
                 <b>Side Projects:</b>{' '}

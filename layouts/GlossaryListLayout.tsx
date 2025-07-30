@@ -20,7 +20,7 @@ export default function GlossaryListLayout({ posts, title, pagination }: Glossar
             {title}
           </h1>
           <div className="text-gray-800">
-            Terms and concepts in the field of AI and Machine Learning.
+            Terms and concepts in the field of Cybersecurity and Information Security.
             <br />
             Powered by{' '}
             <b>

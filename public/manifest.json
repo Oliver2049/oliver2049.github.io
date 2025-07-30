@@ -1,12 +1,12 @@
 {
-  "name": "Viet-Anh on Software",
+  "name": "Oliver's Cyber Station",
   "theme_color": "#0061ff",
   "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "short_name": "Viet-Anh Dev",
-  "description": "Viet-Anh's blog on AI and software engineering - Sharing insights, tutorials, and experiences in artificial intelligence, machine learning, and software development.",
+  "short_name": "Oliver's Cyber",
+  "description": "Oliver's blog on cybersecurity, penetration testing, and system hardening - Sharing insights, tutorials, and experiences in cybersecurity analysis and threat detection.",
   "icons": [
     {
       "src": "/favicons/android-icon-36x36.png",
@@ -57,7 +57,14 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "technology", "blog", "ai", "machine learning", "development"],
+  "categories": [
+    "education",
+    "technology",
+    "blog",
+    "cybersecurity",
+    "penetration testing",
+    "security"
+  ],
   "screenshots": [
     {
       "src": "/images/screenshot-wide.png",

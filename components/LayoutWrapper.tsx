@@ -8,8 +8,7 @@ import Footer from './Footer'
 import DocSearch from './DocSearchWrapper'
 import DropMenu from './DropMenu'
 import Link from 'next/link'
-import logo from '../public/logo.png'
-import Image from 'next-image-export-optimizer'
+import FlippingLogo from './FlippingLogo'
 import { ChevronDown, Sparkles } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import React from 'react'
@@ -91,23 +90,12 @@ const LayoutWrapper = ({ children }: LayoutWrapperProps): React.ReactElement => 
       <div className="flex h-screen flex-col justify-between">
         <header className="mt-4 flex items-center justify-between md:py-10">
           <div>
-            <Link passHref href="/" aria-label="Viet-Anh on Software">
-              <div className="flex items-center justify-between">
-                <div className="mr-0">
-                  <span className="text-xl font-bold text-indigo-600 md:text-2xl lg:text-4xl">
-                    <Image
-                      src={logo}
-                      alt="Viet-Anh on Software Logo"
-                      width={96}
-                      height={96}
-                      className="h-20 w-20 md:h-28 md:w-28 ml-0 -rotate-3 hover:scale-105 hover:-rotate-12 transition-all duration-300 rounded-2xl"
-                      placeholder="blur"
-                      priority={true}
-                    />
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <FlippingLogo
+              sizeClass="h-20 w-20 md:h-28 md:w-28"
+              className="hover:scale-105 transition-all duration-300"
+              href="/"
+              ariaLabel="Viet-Anh on Software"
+            />
           </div>
           <div className="flex text-base leading-5 flex-row items-center">
             <div className="hidden sm:flex flex-row flex-grow">

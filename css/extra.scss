@@ -25,6 +25,103 @@ input:-webkit-autofill:focus {
   }
 }
 
+/* Logo Flip Animation */
+.logo-flip-container {
+  perspective: 1000px;
+  position: relative;
+  display: inline-block;
+}
+
+.logo-flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.logo-flip-container:hover .logo-flip-card {
+  transform: rotateY(180deg);
+}
+
+.logo-flip-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px; /* Changed from 50% to rounded corners */
+  overflow: hidden;
+  padding: 4px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b, #10b981);
+  background-size: 400% 400%;
+  animation: gradient-pulse 3s ease infinite;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-flip-face:hover {
+  padding: 6px;
+  box-shadow:
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 40px rgba(139, 92, 246, 0.2),
+    0 0 60px rgba(236, 72, 153, 0.1);
+  animation-duration: 1.5s;
+}
+
+.logo-flip-face img {
+  border-radius: 16px; /* Rounded corners for the image, slightly less than container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: white;
+}
+
+.logo-flip-front {
+  transform: rotateY(0deg);
+  z-index: 2; /* Ensure front is on top initially */
+  /* Debug: Add a border to see which image is showing */
+  /* border: 3px solid red !important; */
+}
+
+.logo-flip-back {
+  transform: rotateY(180deg);
+  z-index: 1; /* Back is behind initially */
+  /* Debug: Add a border to see which image is showing */
+  /* border: 3px solid blue !important; */
+}
+
+@keyframes gradient-pulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Avatar variant with round border, no glow */
+.logo-flip-face.avatar-round {
+  border-radius: 50%; /* Perfect circle */
+  padding: 3px;
+  background: linear-gradient(135deg, #e5e7eb, #d1d5db); /* Simple gray gradient */
+  background-size: 100% 100%; /* No animation */
+  animation: none; /* Remove gradient animation */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.logo-flip-face.avatar-round:hover {
+  padding: 3px; /* Keep same padding on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+  animation: none; /* No animation on hover */
+}
+
+.logo-flip-face.avatar-round img {
+  border-radius: 50%; /* Perfect circle for the image */
+}
+
 /* Nprogress */
 
 /* Make clicks pass-through */
