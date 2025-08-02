@@ -230,17 +230,12 @@ export default function DropMenu({ launchpadOpen, setLaunchpadOpen }: DropMenuPr
               {({ active }: { active: boolean }) => (
                 <div
                   className={classNames(
-                    active
-                      ? 'bg-gray-200 text-gray-700'
-                      : 'bg-white text-slate-700',
+                    active ? 'bg-gray-200 text-gray-700' : 'bg-white text-slate-700',
                     'block px-4 py-2 text-sm font-medium'
                   )}
                 >
                   <div className="flex flex-row items-center">
-                    <Users
-                      className="mr-4 mt-0.5 h-4 w-4"
-                    />{' '}
-                    Social
+                    <Users className="mr-4 mt-0.5 h-4 w-4" /> Social
                   </div>
                 </div>
               )}
