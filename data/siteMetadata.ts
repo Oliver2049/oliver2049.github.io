@@ -31,7 +31,7 @@ const siteMetadata: SiteMetadata = {
   comment: {
     provider: 'disqus',
     disqusConfig: {
-      shortname: 'tailblaze',
+      shortname: 'oliver-cyber-station',
     },
     utterancesConfig: {
       repo: 'oliver2049/oliver2049.github.io',
