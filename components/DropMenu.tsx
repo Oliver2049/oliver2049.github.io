@@ -232,18 +232,13 @@ export default function DropMenu({ launchpadOpen, setLaunchpadOpen }: DropMenuPr
                   className={classNames(
                     active
                       ? 'bg-gray-200 text-gray-700'
-                      : isActive('/videos')
-                        ? 'bg-primary/10 text-primary font-medium'
-                        : 'bg-white text-slate-700',
+                      : 'bg-white text-slate-700',
                     'block px-4 py-2 text-sm font-medium'
                   )}
                 >
                   <div className="flex flex-row items-center">
                     <Users
-                      className={classNames(
-                        'mr-4 mt-0.5 h-4 w-4',
-                        isActive('/videos') ? 'text-primary' : ''
-                      )}
+                      className="mr-4 mt-0.5 h-4 w-4"
                     />{' '}
                     Social
                   </div>
