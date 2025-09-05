@@ -10,6 +10,31 @@ const houseImage = 'https://images.unsplash.com/photo-1753808645289-283497260e33
 
 const timelineData: TimelineItem[] = [
   {
+    year: 'Aug 2025',
+    position: 'right',
+    title: 'Personal Project - Vulnerability Assessment Lab',
+    content: (
+      <Fragment>
+        <ul>
+          <li>
+            Configured Nessus on a Windows VM and performed credentialed scans to identify
+            vulnerabilities to strengthen system security.
+          </li>
+          <li>
+            Installed vulnerable software (Log4j, older Chrome, Minecraft) and conducted advanced
+            scans to test detection and response capabilities.
+          </li>
+          <li>
+            Implemented remediation strategies and documented findings to provide actionable
+            insights for improving system resilience.
+          </li>
+        </ul>
+      </Fragment>
+    ),
+    image: beachImage,
+    imageAlt: 'Pristine beach with crystal clear waters',
+  },
+  {
     year: '2023 - 2025',
     position: 'right',
     title: 'Education',
@@ -45,15 +70,26 @@ const timelineData: TimelineItem[] = [
       <Fragment>
         <div className="flex flex-row mb-2">
           Working on a personal project focused on Security Information and Event Management (SIEM)
-          using Azure Sentinel to catch attckers around the world.
+          using Azure Sentinel to catch attckers around the world:
         </div>
+        <ul>
+          <li>
+            Deployed Microsoft Sentinel with Log Analytics; ingested Windows Security Events,
+            configured connectors, and built custom KQL queries to monitor failed logins and
+            suspicious activity, enabling proactive detection of potential intrusions.
+          </li>
+          <li>
+            Implemented Watchlist-based enrichment to map attacker IPs to geographic locations and
+            performed incident triage, and visualising threats on an interactive attack map.
+          </li>
+        </ul>
       </Fragment>
     ),
   },
   {
     year: 'March 2025 - May 2025',
     position: 'left',
-    company: 'Deakin Detonator Toolkit',
+    company: 'Final year Project - Deakin Detonator Toolkit',
     content: (
       <Fragment>
         <ul>
@@ -74,7 +110,7 @@ const timelineData: TimelineItem[] = [
   {
     year: 'July 2024 - October 2024',
     position: 'right',
-    company: 'Deakin Detonator Toolkit',
+    company: 'Final year Project - Deakin Detonator Toolkit',
     content: (
       <Fragment>
         <ul>
@@ -85,6 +121,69 @@ const timelineData: TimelineItem[] = [
           <li>
             Tested and validated the functionality of the tools to ensure they meet the required
             standards and specifications within the Toolkit.
+          </li>
+        </ul>
+      </Fragment>
+    ),
+    image: mountainImage,
+    imageAlt: 'Majestic mountain peaks at sunset',
+  },
+  {
+    year: 'August 2024',
+    position: 'right',
+    company: 'University Project - Web Vulnerabilities Lab',
+    content: (
+      <Fragment>
+        <ul>
+          <li>
+            Conducted authenticated and unauthenticated scans on DVWA using Skipfish and httrack to
+            evaluate differences in exposure based on access level.
+          </li>
+          <li>
+            Identified SQL injection, session management, and other HTTP vulnerabilities; compared
+            results to prioritize remediation efforts and strengthen web application security.
+          </li>
+        </ul>
+      </Fragment>
+    ),
+    image: mountainImage,
+    imageAlt: 'Majestic mountain peaks at sunset',
+  },
+  {
+    year: 'July 2024',
+    position: 'right',
+    company: 'University Project - User Credentials Capture Lab',
+    content: (
+      <Fragment>
+        <ul>
+          <li>
+            Captured unencrypted credentials using Ettercap to demonstrate real-world risks of
+            insecure application-layer protocols.
+          </li>
+          <li>
+            Showcased the need for encrypted channels and MFA to protect against password
+            interception and credential theft.
+          </li>
+        </ul>
+      </Fragment>
+    ),
+    image: mountainImage,
+    imageAlt: 'Majestic mountain peaks at sunset',
+  },
+  {
+    year: 'July 2024',
+    position: 'right',
+    company: 'University Project- Tunneling & VPN Analysis',
+    content: (
+      <Fragment>
+        <ul>
+          <li>
+            Configured IP-in-IP, GRE, and SSH tunnels between Ubuntu & Kali VMs to simulate secure
+            remote communication methods.
+          </li>
+          <li>
+            Analyzed traffic using Wireshark and assessed vulnerabilities in tunneling protocols to
+            propose mitigation strategies and improve secure network design.
           </li>
         </ul>
       </Fragment>
