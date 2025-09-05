@@ -13,7 +13,7 @@ const siteMetadata: SiteMetadata = {
   siteUrl: 'https://oliver2049.github.io',
   siteRepo: 'https://github.com/oliver2049/oliver2049.github.io',
   siteLogo: '/CyberStation.png',
-  image: '/avatar.jpg',
+  image: '/public/avatar.jpg',
   socialBanner: '/static/images/banner.png',
   email: 'oliverdoan3001@gmail.com',
   github: 'https://github.com/Oliver2049',
