@@ -1,0 +1,228 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+# Site configuration
+site_url: https://olivercyberstation.netlify.app
+display_url: https://olivercyberstation.netlify.app
+logo_url: /CyberStation.png
+
+# Media configuration
+media_folder: 'public/static/images' # Media files will be stored in the repo under static/images
+public_folder: '/static/images' # The src attribute for uploaded media will begin with /static/images
+
+# Search and preview settings
+search: true
+show_preview_links: true
+
+# Locale setting
+locale: 'en'
+
+# Slug configuration
+slug:
+  encoding: 'unicode'
+  clean_accents: true
+  sanitize_replacement: '-'
+
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog Posts' # Used in the UI
+    label_singular: 'Blog Post'
+    description: "Blog posts for Oliver's Cyber Station"
+    folder: 'data/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: 'blog/{{slug}}'
+    format: 'frontmatter'
+    extension: 'md'
+    editor:
+      preview: true
+    summary: '{{title}} - {{date}}'
+    sortable_fields: ['title', 'date', 'draft']
+    view_filters:
+      - label: 'Published Posts'
+        field: draft
+        pattern: false
+      - label: 'Draft Posts'
+        field: draft
+        pattern: true
+      - label: 'Cybersecurity Posts'
+        field: tags
+        pattern: 'cybersecurity|security|penetration testing'
+    view_groups:
+      - label: 'Year'
+        field: date
+        pattern: '\d{4}'
+      - label: 'Status'
+        field: draft
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string', hint: 'The title of your blog post' }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'datetime',
+          format: 'YYYY-MM-DD HH:mm:ss [Z]',
+          hint: 'When this post was published',
+        }
+      - {
+          label: 'Categories',
+          name: 'categories',
+          widget: 'list',
+          default: ['Blog'],
+          hint: 'Categories for organizing posts',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          hint: 'Tags help readers find related content',
+        }
+      - {
+          label: 'Featured Image',
+          name: 'image',
+          widget: 'image',
+          required: false,
+          hint: 'Optional featured image for the post',
+        }
+      - {
+          label: 'Math Support',
+          name: 'math',
+          widget: 'boolean',
+          default: false,
+          hint: 'Enable LaTeX math rendering',
+        }
+      - {
+          label: 'Draft',
+          name: 'draft',
+          widget: 'boolean',
+          default: false,
+          hint: 'Set to true to save as draft',
+        }
+      - {
+          label: 'Summary',
+          name: 'summary',
+          widget: 'text',
+          hint: 'Brief description shown in post listings and SEO',
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content of your blog post' }
+
+  - name: 'notes' # Used in routes, e.g., /admin/collections/notes
+    label: 'Notes' # Used in the UI
+    label_singular: 'Note'
+    description: 'Quick notes and shorter content'
+    folder: 'data/notes' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: 'notes/{{slug}}'
+    format: 'frontmatter'
+    extension: 'md'
+    editor:
+      preview: true
+    summary: '{{title}} - {{date}}'
+    sortable_fields: ['title', 'date', 'draft']
+    view_filters:
+      - label: 'Published Notes'
+        field: draft
+        pattern: false
+      - label: 'Draft Notes'
+        field: draft
+        pattern: true
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Title', name: 'title', widget: 'string', hint: 'The title of your note' }
+      - {
+          label: 'Publish Date',
+          name: 'date',
+          widget: 'date',
+          format: 'YYYY-MM-DD',
+          hint: 'When this note was created',
+        }
+      - {
+          label: 'Categories',
+          name: 'categories',
+          widget: 'list',
+          default: ['Notes'],
+          hint: 'Categories for organizing notes',
+        }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          hint: 'Tags help readers find related content',
+        }
+      - {
+          label: 'Draft',
+          name: 'draft',
+          widget: 'boolean',
+          default: false,
+          hint: 'Set to true to save as draft',
+        }
+      - { label: 'Summary', name: 'summary', widget: 'text', hint: 'Brief description of the note' }
+      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content of your note' }
+
+  - name: 'authors' # Used in routes, e.g., /admin/collections/authors
+    label: 'Authors' # Used in the UI
+    label_singular: 'Author'
+    description: 'Author profiles and information'
+    folder: 'data/authors' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template
+    format: 'frontmatter'
+    extension: 'md'
+    identifier_field: 'name'
+    editor:
+      preview: true
+    summary: '{{name}} - {{occupation}}'
+    sortable_fields: ['name', 'occupation']
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Name', name: 'name', widget: 'string', hint: 'Full name of the author' }
+      - { label: 'Avatar', name: 'avatar', widget: 'image', hint: 'Profile picture' }
+      - { label: 'Occupation', name: 'occupation', widget: 'string', hint: 'Job title or role' }
+      - {
+          label: 'Company',
+          name: 'company',
+          widget: 'string',
+          required: false,
+          hint: 'Company or organization (optional)',
+        }
+      - {
+          label: 'Email',
+          name: 'email',
+          widget: 'string',
+          pattern:
+            [
+              '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+              'Please enter a valid email address',
+            ],
+        }
+      - {
+          label: 'Twitter',
+          name: 'twitter',
+          widget: 'string',
+          required: false,
+          hint: 'Twitter profile URL (optional)',
+        }
+      - {
+          label: 'LinkedIn',
+          name: 'linkedin',
+          widget: 'string',
+          required: false,
+          hint: 'LinkedIn profile URL (optional)',
+        }
+      - {
+          label: 'GitHub',
+          name: 'github',
+          widget: 'string',
+          required: false,
+          hint: 'GitHub profile URL (optional)',
+        }
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'AuthorLayout' }
+      - { label: 'Bio', name: 'body', widget: 'markdown', hint: 'Author biography and background' }

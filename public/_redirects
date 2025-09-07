@@ -1,0 +1,3 @@
+# Redirect all traffic to Netlify site
+# Replace 'your-actual-netlify-url' with your real Netlify site URL
+/*  https://olivercyberstation.netlify.app/:splat  301
