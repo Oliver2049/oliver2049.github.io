@@ -1,0 +1,20 @@
+<h2>Reset Password for Oliver's Cyber Station</h2>
+
+<p>Follow this link to reset the password for your user:</p>
+
+<p>
+  <a
+    href="{{ .SiteURL }}/admin/#recovery_token={{ .Token }}"
+    style="
+      background-color: #007cba;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    "
+    >Reset Password</a
+  >
+</p>
+
+<p>Or copy and paste this link into your browser:</p>
+<p>{{ .SiteURL }}/admin/#recovery_token={{ .Token }}</p>
