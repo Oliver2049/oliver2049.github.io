@@ -43,10 +43,10 @@ CMS.registerEditorComponent({
   },
 })
 
-// Custom Image component with size options
+// Override default image component to include size options
 CMS.registerEditorComponent({
-  id: 'custom-image',
-  label: 'Image (Resizable)',
+  id: 'image',
+  label: 'Image',
   fields: [
     {
       name: 'src',
@@ -73,26 +73,22 @@ CMS.registerEditorComponent({
       default: 'medium',
       hint: 'Choose the image size',
     },
-    {
-      name: 'caption',
-      label: 'Caption (optional)',
-      widget: 'string',
-      required: false,
-      hint: 'Optional caption below the image',
-    },
   ],
-  pattern: /^<CustomImage src="([^"]+)" alt="([^"]*)" size="([^"]*)"(?: caption="([^"]*)")?\s*\/>$/,
+  pattern: /^!\[([^\]]*)\]\(([^)]+)\)(?:\{([^}]*)\})?$/,
   fromBlock: function (match) {
+    const alt = match[1] || ''
+    const src = match[2] || ''
+    const sizeMatch = match[3] ? match[3].match(/size:(\w+)/) : null
+    const size = sizeMatch ? sizeMatch[1] : 'medium'
+    
     return {
-      src: match[1],
-      alt: match[2],
-      size: match[3],
-      caption: match[4] || '',
+      alt: alt,
+      src: src,
+      size: size,
     }
   },
   toBlock: function (obj) {
-    const caption = obj.caption ? ` caption="${obj.caption}"` : ''
-    return `<CustomImage src="${obj.src}" alt="${obj.alt}" size="${obj.size}"${caption} />`
+    return `![${obj.alt}](${obj.src}){size:${obj.size}}`
   },
   toPreview: function (obj) {
     const sizeMap = {
@@ -102,12 +98,10 @@ CMS.registerEditorComponent({
       full: '100%',
     }
     const width = sizeMap[obj.size] || '500px'
-    const caption = obj.caption ? `<p style="text-align: center; font-style: italic; margin-top: 8px;">${obj.caption}</p>` : ''
     
     return `
       <div style="text-align: center; margin: 20px 0;">
         <img src="${obj.src}" alt="${obj.alt}" style="max-width: ${width}; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
-        ${caption}
       </div>
     `
   },

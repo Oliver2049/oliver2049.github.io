@@ -119,8 +119,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use toolbar buttons for media. Examples: <span style="color: red;">red text</span>, <ColoredText color="blue">colored text</ColoredText>',
-          editor_components: ['image', 'code-block', 'youtube', 'custom-image'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. After uploading an image, you can resize it by adding style="max-width: 300px" (small), "max-width: 500px" (medium), or "max-width: 700px" (large) to the img tag.',
+          editor_components: ['image', 'code-block', 'youtube'],
         }
 
   - name: 'notes' # Used in routes, e.g., /admin/collections/notes
@@ -180,8 +180,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use toolbar buttons for media. Examples: <span style="color: red;">red text</span>, <ColoredText color="blue">colored text</ColoredText>',
-          editor_components: ['image', 'code-block', 'youtube', 'custom-image'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. After uploading an image, you can resize it by adding style="max-width: 300px" (small), "max-width: 500px" (medium), or "max-width: 700px" (large) to the img tag.',
+          editor_components: ['image', 'code-block', 'youtube'],
         }
 
   - name: 'authors' # Used in routes, e.g., /admin/collections/authors
