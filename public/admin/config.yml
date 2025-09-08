@@ -115,7 +115,13 @@ collections:
           widget: 'text',
           hint: 'Brief description shown in post listings and SEO',
         }
-      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content - supports Markdown, HTML, and custom styling. Examples: <span style="color: red;">red text</span>, <mark>highlight</mark>, <span class="text-blue-600 font-bold">blue bold</span>' }
+      - {
+          label: 'Body',
+          name: 'body',
+          widget: 'markdown',
+          hint: 'Main content supports Markdown, HTML, images, and custom styling. Use the image button in toolbar to upload images. Examples: <span style="color: red;">red text</span>, <mark>highlight</mark>, <ColoredText color="blue">colored text</ColoredText>',
+          editor_components: ['image'],
+        }
 
   - name: 'notes' # Used in routes, e.g., /admin/collections/notes
     label: 'Notes' # Used in the UI
@@ -170,7 +176,13 @@ collections:
           hint: 'Set to true to save as draft',
         }
       - { label: 'Summary', name: 'summary', widget: 'text', hint: 'Brief description of the note' }
-      - { label: 'Body', name: 'body', widget: 'markdown', hint: 'Main content - supports Markdown, HTML, and custom styling. Examples: <span style="color: red;">red text</span>, <mark>highlight</mark>, <span class="text-blue-600 font-bold">blue bold</span>' }
+      - {
+          label: 'Body',
+          name: 'body',
+          widget: 'markdown',
+          hint: 'Main content supports Markdown, HTML, images, and custom styling. Use the image button in toolbar to upload images. Examples: <span style="color: red;">red text</span>, <mark>highlight</mark>, <ColoredText color="blue">colored text</ColoredText>',
+          editor_components: ['image'],
+        }
 
   - name: 'authors' # Used in routes, e.g., /admin/collections/authors
     label: 'Authors' # Used in the UI

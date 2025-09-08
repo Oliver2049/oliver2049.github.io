@@ -34,6 +34,17 @@ export const MDXComponents: MDXComponentsType = {
   Alert,
   InlineCode,
   Box,
+  // Override default img tag to use our Image component
+  img: ({ src, alt, width, height, ...props }) => (
+    <Image
+      src={src || ''}
+      alt={alt || ''}
+      width={typeof width === 'string' ? parseInt(width) : width || 800}
+      height={typeof height === 'string' ? parseInt(height) : height || 400}
+      className="rounded-lg shadow-md my-4"
+      {...props}
+    />
+  ),
   wrapper: ({ layout, ...rest }: WrapperProps) => {
     const Layout = dynamic(() => import(`../layouts/${layout}`), {
       ssr: true,

