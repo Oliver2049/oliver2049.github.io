@@ -1,6 +1,6 @@
 ---
 name: Oliver Doan
-avatar: /public/avatar.jpg
+avatar: /avatar.jpg
 occupation: Offensive Security
 company:
 email: oliverdoan3001@gmail.com
