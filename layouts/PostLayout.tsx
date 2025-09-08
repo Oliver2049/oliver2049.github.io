@@ -46,7 +46,7 @@ interface FrontMatter {
 interface Author {
   name: string
   avatar?: string
-  twitter?: string
+  github?: string
   [key: string]: any
 }
 
@@ -132,15 +132,15 @@ export default function PostLayout({
                       <div className="whitespace-nowrap text-sm font-medium leading-5">
                         <div className="sr-only">Name</div>
                         <div className="text-gray-900">{author.name}</div>
-                        <div className="sr-only">Twitter</div>
+                        <div className="sr-only">GitHub</div>
                         <div>
-                          {author.twitter && (
+                          {author.github && (
                             <Link
                               passHref
-                              href={author.twitter}
+                              href={author.github}
                               className="text-primary-600 hover:text-primary-600"
                             >
-                              {author.twitter.replace('https://twitter.com/', '@')}
+                              {author.github.replace('https://github.com/', '@')}
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
