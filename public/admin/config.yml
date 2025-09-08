@@ -84,8 +84,9 @@ collections:
           label: 'Tags',
           name: 'tags',
           widget: 'list',
-          allow_add: true,
-          hint: 'Enter each tag separately. Click "Add" to add more tags. Examples: cybersecurity, tutorial, penetration-testing',
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          default: [],
+          hint: 'Add individual tags for your post. Each tag will display with Tailblaze styling.',
         }
       - {
           label: 'Featured Image',
@@ -157,8 +158,9 @@ collections:
           label: 'Tags',
           name: 'tags',
           widget: 'list',
-          allow_add: true,
-          hint: 'Enter each tag separately. Click "Add" to add more tags. Examples: quick-note, reference, cybersecurity',
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+          default: [],
+          hint: 'Add individual tags for your note',
         }
       - {
           label: 'Draft',
