@@ -9,7 +9,7 @@ backend:
     deleteMedia: 'Delete "{{path}}"'
 
 # Uncomment below to enable drafts
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 # Site configuration
 site_url: https://olivercyberstation.netlify.app
@@ -119,8 +119,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, and custom styling. Use the image button in toolbar to upload images. Examples: <span style="color: red;">red text</span>, <mark>highlight</mark>, <ColoredText color="blue">colored text</ColoredText>',
-          editor_components: ['image'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use toolbar buttons for media. Examples: <span style="color: red;">red text</span>, <ColoredText color="blue">colored text</ColoredText>',
+          editor_components: ['image', 'code-block', 'youtube'],
         }
 
   - name: 'notes' # Used in routes, e.g., /admin/collections/notes
@@ -180,8 +180,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, and custom styling. Use the image button in toolbar to upload images. Examples: <span style="color: red;">red text</span>, <mark>highlight</mark>, <ColoredText color="blue">colored text</ColoredText>',
-          editor_components: ['image'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use toolbar buttons for media. Examples: <span style="color: red;">red text</span>, <ColoredText color="blue">colored text</ColoredText>',
+          editor_components: ['image', 'code-block', 'youtube'],
         }
 
   - name: 'authors' # Used in routes, e.g., /admin/collections/authors

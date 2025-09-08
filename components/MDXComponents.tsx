@@ -8,6 +8,7 @@ import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 import dynamic from 'next/dynamic'
 import Gist from './Gist'
+import YouTube from './YouTube'
 import { ColoredText, Highlight, Badge, Alert, InlineCode, Box } from './StyledText'
 
 interface WrapperProps {
@@ -27,6 +28,7 @@ export const MDXComponents: MDXComponentsType = {
   pre: ({ children, ...props }) => <Pre {...props}>{children}</Pre>,
   BlogNewsletterForm: BlogNewsletterForm,
   Gist,
+  YouTube,
   // Custom styling components
   ColoredText,
   Highlight,
