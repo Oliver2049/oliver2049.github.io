@@ -37,15 +37,20 @@ This lab gave me hands-on experience with:
 
 Create a Resource Group
 
+![](/static/images/screenshot-2025-09-08-225034.png)
+
 Create a virtual network
-![](/static/images/screenshot-2025-09-08-181853.png)
 
 Create a virtual machine
 
 OS: Windows 10 Pro
 Size: Standard B1s 
 
-![](/static/images/screenshot-2025-09-08-181853.png)
+![](/static/images/picture7.png)
+
+
+
+
 
 ### 2.2. Configure Network Security Group (NSG)
 
