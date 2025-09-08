@@ -84,7 +84,8 @@ collections:
           label: 'Tags',
           name: 'tags',
           widget: 'list',
-          hint: 'Tags help readers find related content',
+          allow_add: true,
+          hint: 'Enter each tag separately. Click "Add" to add more tags. Examples: cybersecurity, tutorial, penetration-testing',
         }
       - {
           label: 'Featured Image',
@@ -156,7 +157,8 @@ collections:
           label: 'Tags',
           name: 'tags',
           widget: 'list',
-          hint: 'Tags help readers find related content',
+          allow_add: true,
+          hint: 'Enter each tag separately. Click "Add" to add more tags. Examples: quick-note, reference, cybersecurity',
         }
       - {
           label: 'Draft',
