@@ -6,12 +6,12 @@ interface YouTubeProps {
   className?: string
 }
 
-const YouTube = ({ 
-  id, 
-  title, 
-  width = 560, 
-  height = 315, 
-  className = "my-6 mx-auto" 
+const YouTube = ({
+  id,
+  title,
+  width = 560,
+  height = 315,
+  className = 'my-6 mx-auto',
 }: YouTubeProps) => {
   if (!id) {
     return <div className="text-red-500">Error: YouTube video ID is required</div>
@@ -19,9 +19,7 @@ const YouTube = ({
 
   return (
     <div className={className}>
-      {title && (
-        <h3 className="text-xl font-semibold mb-3 text-center">{title}</h3>
-      )}
+      {title && <h3 className="text-xl font-semibold mb-3 text-center">{title}</h3>}
       <div className="relative aspect-video">
         <iframe
           src={`https://www.youtube.com/embed/${id}`}
