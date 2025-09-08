@@ -12,8 +12,8 @@ backend:
 publish_mode: editorial_workflow
 
 # Site configuration
-site_url: https://olivercyberstation.netlify.app
-display_url: https://olivercyberstation.netlify.app
+site_url: https://oliver2049-github-io.pages.dev/
+display_url: https://oliver2049-github-io.pages.dev/
 logo_url: /CyberStation.png
 
 # Media configuration
