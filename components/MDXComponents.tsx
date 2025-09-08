@@ -47,19 +47,26 @@ export const MDXComponents: MDXComponentsType = {
     const sizeClasses = className || ''
     const hasCustomSize = sizeClasses.includes('max-w-') || sizeClasses.includes('w-')
     
-    if (hasCustomSize) {
-      // Use regular img tag with Tailwind classes for manual resize
+    // For images from CMS uploads (static/images path), use regular img tag to avoid optimization issues
+    const isUploadedImage = src && src.includes('/static/images/')
+    
+    if (hasCustomSize || isUploadedImage) {
+      // Use regular img tag with Tailwind classes for manual resize or uploaded images
       return (
         <img 
           src={src || ''} 
           alt={alt || ''} 
-          className={`rounded-lg shadow-md my-4 mx-auto block ${sizeClasses}`}
+          className={`rounded-lg shadow-md my-4 mx-auto block ${hasCustomSize ? sizeClasses : 'max-w-full h-auto'}`}
+          onError={(e) => {
+            console.error('Image failed to load:', src)
+            e.currentTarget.style.display = 'none'
+          }}
           {...props}
         />
       )
     }
     
-    // Default behavior for regular images
+    // Default behavior for other images (use optimized Image component)
     const imgWidth = typeof width === 'string' ? parseInt(width) : width || 800
     const imgHeight = typeof height === 'string' ? parseInt(height) : height || 400
     const combinedClassName = `rounded-lg shadow-md my-4 ${className || ''}`
