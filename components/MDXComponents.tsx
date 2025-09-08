@@ -9,6 +9,7 @@ import { BlogNewsletterForm } from './NewsletterForm'
 import dynamic from 'next/dynamic'
 import Gist from './Gist'
 import YouTube from './YouTube'
+import CustomImage from './CustomImage'
 import { ColoredText, Highlight, Badge, Alert, InlineCode, Box } from './StyledText'
 
 interface WrapperProps {
@@ -29,6 +30,7 @@ export const MDXComponents: MDXComponentsType = {
   BlogNewsletterForm: BlogNewsletterForm,
   Gist,
   YouTube,
+  CustomImage,
   // Custom styling components
   ColoredText,
   Highlight,
@@ -36,17 +38,24 @@ export const MDXComponents: MDXComponentsType = {
   Alert,
   InlineCode,
   Box,
-  // Override default img tag to use our Image component
-  img: ({ src, alt, width, height, ...props }) => (
-    <Image
-      src={src || ''}
-      alt={alt || ''}
-      width={typeof width === 'string' ? parseInt(width) : width || 800}
-      height={typeof height === 'string' ? parseInt(height) : height || 400}
-      className="rounded-lg shadow-md my-4"
-      {...props}
-    />
-  ),
+  // Override default img tag to use our Image component with style support
+  img: ({ src, alt, width, height, style, className, ...props }: any) => {
+    const imgWidth = typeof width === 'string' ? parseInt(width) : width || 800
+    const imgHeight = typeof height === 'string' ? parseInt(height) : height || 400
+    const combinedClassName = `rounded-lg shadow-md my-4 ${className || ''}`
+    
+    return (
+      <Image 
+        src={src || ''} 
+        alt={alt || ''} 
+        width={imgWidth}
+        height={imgHeight}
+        className={combinedClassName}
+        style={style}
+        {...props} 
+      />
+    )
+  },
   wrapper: ({ layout, ...rest }: WrapperProps) => {
     const Layout = dynamic(() => import(`../layouts/${layout}`), {
       ssr: true,

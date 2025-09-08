@@ -120,7 +120,7 @@ collections:
           name: 'body',
           widget: 'markdown',
           hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use toolbar buttons for media. Examples: <span style="color: red;">red text</span>, <ColoredText color="blue">colored text</ColoredText>',
-          editor_components: ['image', 'code-block', 'youtube'],
+          editor_components: ['image', 'code-block', 'youtube', 'custom-image'],
         }
 
   - name: 'notes' # Used in routes, e.g., /admin/collections/notes
@@ -181,7 +181,7 @@ collections:
           name: 'body',
           widget: 'markdown',
           hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use toolbar buttons for media. Examples: <span style="color: red;">red text</span>, <ColoredText color="blue">colored text</ColoredText>',
-          editor_components: ['image', 'code-block', 'youtube'],
+          editor_components: ['image', 'code-block', 'youtube', 'custom-image'],
         }
 
   - name: 'authors' # Used in routes, e.g., /admin/collections/authors
