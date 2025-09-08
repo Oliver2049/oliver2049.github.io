@@ -119,10 +119,9 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Click the Image button in toolbar to upload images.',
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling.',
           editor_components: ['image', 'code-block', 'youtube'],
           modes: ['rich_text', 'raw'],
-          buttons: ['bold', 'italic', 'code', 'link', 'heading-two', 'heading-three', 'heading-four', 'heading-five', 'heading-six', 'quote', 'code-block', 'bulleted-list', 'numbered-list']
         }
 
   - name: 'notes' # Used in routes, e.g., /admin/collections/notes
@@ -182,10 +181,9 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Click the Image button in toolbar to upload images.',
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling.',
           editor_components: ['image', 'code-block', 'youtube'],
           modes: ['rich_text', 'raw'],
-          buttons: ['bold', 'italic', 'code', 'link', 'heading-two', 'heading-three', 'heading-four', 'heading-five', 'heading-six', 'quote', 'code-block', 'bulleted-list', 'numbered-list']
         }
 
   - name: 'authors' # Used in routes, e.g., /admin/collections/authors
