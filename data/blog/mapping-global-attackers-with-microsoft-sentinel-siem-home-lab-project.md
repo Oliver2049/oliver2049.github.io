@@ -37,8 +37,6 @@ This lab gave me hands-on experience with:
 
 Create a Resource Group
 
-![](/static/images/resourcegroup.png)
-
 Create a virtual network
 ![](/static/images/screenshot-2025-09-08-181853.png)
 
