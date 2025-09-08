@@ -8,6 +8,7 @@ import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 import dynamic from 'next/dynamic'
 import Gist from './Gist'
+import { ColoredText, Highlight, Badge, Alert, InlineCode, Box } from './StyledText'
 
 interface WrapperProps {
   layout: string
@@ -26,6 +27,13 @@ export const MDXComponents: MDXComponentsType = {
   pre: ({ children, ...props }) => <Pre {...props}>{children}</Pre>,
   BlogNewsletterForm: BlogNewsletterForm,
   Gist,
+  // Custom styling components
+  ColoredText,
+  Highlight,
+  Badge,
+  Alert,
+  InlineCode,
+  Box,
   wrapper: ({ layout, ...rest }: WrapperProps) => {
     const Layout = dynamic(() => import(`../layouts/${layout}`), {
       ssr: true,
