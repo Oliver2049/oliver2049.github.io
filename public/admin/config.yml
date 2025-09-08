@@ -119,8 +119,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. After uploading an image, you can resize it by adding style="max-width: 300px" (small), "max-width: 500px" (medium), or "max-width: 700px" (large) to the img tag.',
-          editor_components: ['image', 'code-block', 'youtube'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use "Image with Size" button for resizable images, or regular "Image" for default size.',
+          editor_components: ['image', 'code-block', 'youtube', 'sized-image'],
         }
 
   - name: 'notes' # Used in routes, e.g., /admin/collections/notes
@@ -180,8 +180,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. After uploading an image, you can resize it by adding style="max-width: 300px" (small), "max-width: 500px" (medium), or "max-width: 700px" (large) to the img tag.',
-          editor_components: ['image', 'code-block', 'youtube'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use "Image with Size" button for resizable images, or regular "Image" for default size.',
+          editor_components: ['image', 'code-block', 'youtube', 'sized-image'],
         }
 
   - name: 'authors' # Used in routes, e.g., /admin/collections/authors

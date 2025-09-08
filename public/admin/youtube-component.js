@@ -43,10 +43,10 @@ CMS.registerEditorComponent({
   },
 })
 
-// Override default image component to include size options
+// Custom Image with Size component for Decap CMS
 CMS.registerEditorComponent({
-  id: 'image',
-  label: 'Image',
+  id: 'sized-image',
+  label: 'Image with Size',
   fields: [
     {
       name: 'src',
@@ -74,34 +74,43 @@ CMS.registerEditorComponent({
       hint: 'Choose the image size',
     },
   ],
-  pattern: /^!\[([^\]]*)\]\(([^)]+)\)(?:\{([^}]*)\})?$/,
+  pattern: /^<img src="([^"]+)" alt="([^"]*)" style="max-width:\s*([^;]+);[^"]*" \/?>$/,
   fromBlock: function (match) {
-    const alt = match[1] || ''
-    const src = match[2] || ''
-    const sizeMatch = match[3] ? match[3].match(/size:(\w+)/) : null
-    const size = sizeMatch ? sizeMatch[1] : 'medium'
+    const src = match[1]
+    const alt = match[2]
+    const maxWidth = match[3]
     
-    return {
-      alt: alt,
-      src: src,
-      size: size,
-    }
+    let size = 'medium'
+    if (maxWidth.includes('300px')) size = 'small'
+    else if (maxWidth.includes('500px')) size = 'medium'
+    else if (maxWidth.includes('700px')) size = 'large'
+    else if (maxWidth.includes('100%')) size = 'full'
+    
+    return { src, alt, size }
   },
   toBlock: function (obj) {
-    return `![${obj.alt}](${obj.src}){size:${obj.size}}`
+    const sizeMap = {
+      small: '300px',
+      medium: '500px',
+      large: '700px',
+      full: '100%',
+    }
+    const maxWidth = sizeMap[obj.size] || '500px'
+    
+    return `<img src="${obj.src}" alt="${obj.alt}" style="max-width: ${maxWidth}; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin: 20px auto; display: block;" />`
   },
   toPreview: function (obj) {
     const sizeMap = {
       small: '300px',
-      medium: '500px', 
+      medium: '500px',
       large: '700px',
       full: '100%',
     }
-    const width = sizeMap[obj.size] || '500px'
+    const maxWidth = sizeMap[obj.size] || '500px'
     
     return `
       <div style="text-align: center; margin: 20px 0;">
-        <img src="${obj.src}" alt="${obj.alt}" style="max-width: ${width}; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+        <img src="${obj.src}" alt="${obj.alt}" style="max-width: ${maxWidth}; height: auto; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
       </div>
     `
   },
