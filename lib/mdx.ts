@@ -12,7 +12,6 @@ import remarkExtractFrontmatter from './remark-extract-frontmatter'
 import remarkCodeTitles from './remark-code-title'
 import remarkTocHeadings from './remark-toc-headings'
 import remarkImgToJsx from './remark-img-to-jsx'
-import { remarkImageSize } from './remark-image-size'
 // Rehype packages
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -114,7 +113,6 @@ export async function getFileBySlug(
         remarkCodeTitles,
         [remarkFootnotes, { inlineNotes: true }],
         remarkMath,
-        remarkImageSize,
         remarkImgToJsx,
       ]
       options.rehypePlugins = [
