@@ -48,10 +48,6 @@ Size: Standard B1s
 
 ![](/static/images/picture7.png)
 
-
-
-
-
 ### 2.2. Configure Network Security Group (NSG)
 
 Delete default RDP allow-any rule
