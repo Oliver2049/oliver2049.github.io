@@ -12,8 +12,8 @@ backend:
 publish_mode: editorial_workflow
 
 # Site configuration
-site_url: https://oliver2049-github-io.pages.dev/
-display_url: https://oliver2049-github-io.pages.dev/
+site_url: https://oliver2049-github-io.pages.dev
+display_url: https://oliver2049-github-io.pages.dev
 logo_url: /CyberStation.png
 
 # Media configuration
@@ -119,8 +119,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling.',
-          editor_components: ['image', 'code-block', 'youtube'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use "Sized Image" for custom image sizes.',
+          editor_components: ['image', 'sized-image', 'code-block', 'youtube'],
           modes: ['rich_text', 'raw'],
         }
 
@@ -181,8 +181,8 @@ collections:
           label: 'Body',
           name: 'body',
           widget: 'markdown',
-          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling.',
-          editor_components: ['image', 'code-block', 'youtube'],
+          hint: 'Main content supports Markdown, HTML, images, code blocks, YouTube videos, and custom styling. Use "Sized Image" for custom image sizes.',
+          editor_components: ['image', 'sized-image', 'code-block', 'youtube'],
           modes: ['rich_text', 'raw'],
         }
 

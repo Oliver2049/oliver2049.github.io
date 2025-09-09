@@ -40,47 +40,49 @@ export const MDXComponents: MDXComponentsType = {
   Box,
   // Override default img tag to support manual resizing with className and size attributes
   img: ({ src, alt, width, height, style, className, ...props }: any) => {
-    // Check if this is from our custom markdown format with size info
-    const parentElement = typeof window !== 'undefined' ? document.querySelector(`img[src="${src}"]`)?.parentElement : null
-    
+    // For images from CMS uploads (static/images path), use regular img tag to avoid optimization issues
+    const isUploadedImage = src && src.includes('/static/images/')
+
     // If className contains size classes, use them for manual resize
     const sizeClasses = className || ''
     const hasCustomSize = sizeClasses.includes('max-w-') || sizeClasses.includes('w-')
-    
-    // For images from CMS uploads (static/images path), use regular img tag to avoid optimization issues
-    const isUploadedImage = src && src.includes('/static/images/')
-    
+
+    // Always use regular img tag for uploaded images or when custom sizing is needed
     if (hasCustomSize || isUploadedImage) {
-      // Use regular img tag with Tailwind classes for manual resize or uploaded images
       return (
-        <img 
-          src={src || ''} 
-          alt={alt || ''} 
-          className={`rounded-lg shadow-md my-4 mx-auto block ${hasCustomSize ? sizeClasses : 'max-w-full h-auto'}`}
-          onError={(e) => {
-            console.error('Image failed to load:', src)
-            e.currentTarget.style.display = 'none'
-          }}
-          {...props}
-        />
+        <div className="my-6 flex justify-center">
+          <img
+            src={src || ''}
+            alt={alt || ''}
+            className={`rounded-lg shadow-md ${hasCustomSize ? sizeClasses : 'max-w-full h-auto'} block`}
+            style={style}
+            onError={(e) => {
+              console.error('Image failed to load:', src)
+              e.currentTarget.style.display = 'none'
+            }}
+            {...props}
+          />
+        </div>
       )
     }
-    
-    // Default behavior for other images (use optimized Image component)
+
+    // Default behavior for other images (use optimized Image component) but wrapped in div
     const imgWidth = typeof width === 'string' ? parseInt(width) : width || 800
     const imgHeight = typeof height === 'string' ? parseInt(height) : height || 400
-    const combinedClassName = `rounded-lg shadow-md my-4 ${className || ''}`
-    
+    const combinedClassName = `rounded-lg shadow-md ${className || ''}`
+
     return (
-      <Image 
-        src={src || ''} 
-        alt={alt || ''} 
-        width={imgWidth}
-        height={imgHeight}
-        className={combinedClassName}
-        style={style}
-        {...props} 
-      />
+      <div className="my-6 flex justify-center">
+        <Image
+          src={src || ''}
+          alt={alt || ''}
+          width={imgWidth}
+          height={imgHeight}
+          className={combinedClassName}
+          style={style}
+          {...props}
+        />
+      </div>
     )
   },
   wrapper: ({ layout, ...rest }: WrapperProps) => {

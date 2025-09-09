@@ -1,6 +1,0 @@
-# This file is for Cloudflare Pages ONLY
-# It redirects Cloudflare Pages traffic to Netlify
-# On Netlify, this file should be ignored/excluded
-
-# Redirect all Cloudflare Pages traffic to Netlify
-# /*  https://olivercyberstation.netlify.app/:splat  301

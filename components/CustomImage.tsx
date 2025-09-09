@@ -7,10 +7,10 @@ interface CustomImageProps {
 
 const CustomImage = ({ src, alt, size, caption }: CustomImageProps) => {
   const sizeClasses = {
-    small: 'max-w-xs',      // 300px
-    medium: 'max-w-md',     // 500px
-    large: 'max-w-2xl',     // 700px
-    full: 'w-full'          // 100%
+    small: 'max-w-xs', // 300px
+    medium: 'max-w-md', // 500px
+    large: 'max-w-2xl', // 700px
+    full: 'w-full', // 100%
   }
 
   const sizeClass = sizeClasses[size] || sizeClasses.medium
