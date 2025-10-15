@@ -20,7 +20,7 @@ summary: In this project, I set up a SIEM home lab in Azure using Microsoft
 ---
 # 1. Introduction
 
-Within the cybersecurity universe, it is essential for a Security Operations Center (SOC) analyst to understand how to collect, query, and enrich logs. In this lab, I built a Windows 10 **honeypot VM** in **Microsoft Azure**, deliberately exposed it to the internet to simulate a target for attackers. I then configured **Log Analytics Workspace (LAW)** and **Microsoft Sentinel* to ingest security logs in real-time. Using** Kusto Query Language (KQL)\*\*, I queried failed login attempts, enriched the logs with GeoIP data, and visualized attacker locations on a world map. 
+Within the cybersecurity universe, it is essential for a Security Operations Center (SOC) analyst to understand how to collect, query, and enrich logs. In this lab, inspired by **[Josh Madakor](https://www.youtube.com/watch?v=g5JL2RIbThM&list=PLMgj9pKJ0qOKGo_MiMxkrMK8GJFXY7cJ4&index=5)**, I built a Windows 10 **honeypot VM** in **Microsoft Azure**, deliberately exposed it to the internet to simulate a target for attackers. I then configured **Log Analytics Workspace (LAW)** and **Microsoft Sentinel* to ingest security logs in real-time. Using** Kusto Query Language (KQL)\*\*, I queried failed login attempts, enriched the logs with GeoIP data, and visualized attacker locations on a world map. 
 
 This lab gave me hands-on experience with: 
 
@@ -55,15 +55,11 @@ Finally, I deployed a Virtual Machine (Windows 10 Pro) inside the same Resource 
 
 ![](/static/images/creatingvm3.png)
 
-
-
 ### 2.2. Configure Network Security Group (NSG)
 
 Within the Resource Group, open NSG, and delete default RDP allow-any rule
 
 ![](/static/images/nsg1.png)
-
-
 
 ![](/static/images/nsg2.png)
 
@@ -77,13 +73,9 @@ At this point, using the VM's credentials, log in to the VM through Remote Deskt
 
 ![](/static/images/rdp.png)
 
-
-
 Open wf.msc → set Domain, Private, Public profiles to Off
 
 ![](/static/images/firewall.png)
-
-
 
 # 3. Logging into the VM and inspecting logs
 
@@ -107,15 +99,11 @@ Within the VM, open up Event Viewer, then Windows logs, and inspect the Security
 
 ![](/static/images/eventlog.png)
 
-
-
 Then, use Search tools, or Filter to find the Event ID ***4625***, which indicates a failed logon attempt, or examine the logs for a little while to discover failed logon attempts.
 
 ![](/static/images/eventlog2.png)
 
 ![](/static/images/eventlog3.png)
-
-
 
 # 4. Log Forwarding and KQL
 
@@ -143,11 +131,7 @@ Within Windows Security Events, search for Windows Security Events via AMA, and 
 
 ![](/static/images/dcr.png)
 
-
-
 ![](/static/images/dcr2.png)
-
-
 
 Check Extensions + Applications in VM to make sure AzureMonitorWindowsAgent is there
 
@@ -164,8 +148,6 @@ SecurityEvent
 | project TimeGenerated, Account, Computer, EventID, Activity, IpAddress
 ```
 
-
-
 Result: shows all failed login attempts in real time
 
 ![](/static/images/logsingestion.png)
@@ -178,11 +160,7 @@ As we only IP addresses and no location data, we need to import a spreadsheet th
 
 ![](/static/images/spreadsheet.png)
 
-
-
 ![](/static/images/geo1.png)
-
-
 
 ![](/static/images/geo2.png)
 
@@ -206,8 +184,6 @@ WindowsEvents
 This query filters Windows security logs with **EventID = 4625** (failed login) from the specified attacker IP, then sorts them in **descending order** by time. It uses **ipv4_lookup** to join with the **GeoIP watchlist** to enrich the data with geographic details based on the **IP** and **network**. Finally, it outputs a table showing the **timestamp** (TimeGenerated), the **attacked machine** (Computer), the **attacker’s IP**, and the corresponding **city**, **country**, **latitude**, and **longitude**.
 
 ![](/static/images/geokql.png)
-
-
 
 # 6. Attack Map Visualization
 
@@ -266,9 +242,6 @@ Open a New query, and go to the Advanced Editor to input KQL. Using the Advanced
 I can clearly see the top attacker locations at this point. 
 
 ![](/static/images/attlocation.png)
-
-
-
 
 I can also filter the color and configure the Layout settings for better visualisation. I chose the time range **last 30 days**.
 
