@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import { parseDateWithDefaultTimezone } from '@/lib/datetime'
 
@@ -14,6 +13,7 @@ interface CommonSEOProps {
   ogImage: string | Image[]
   twImage: string
   canonicalUrl?: string
+  pathname?: string
 }
 
 interface PageSEOProps {
@@ -96,9 +96,8 @@ const CommonSEO = ({
   ogImage,
   twImage,
   canonicalUrl,
+  pathname = '',
 }: CommonSEOProps) => {
-  const router = useRouter()
-  const pathname = router.asPath
   return (
     <Head>
       <title>{title}</title>
@@ -138,8 +137,6 @@ const CommonSEO = ({
 export const PageSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const router = useRouter()
-  const pathname = router.asPath
 
   const websiteSchema: WebsiteSchema = {
     '@context': 'https://schema.org',
@@ -164,6 +161,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
         ogType="website"
         ogImage={ogImageUrl}
         twImage={twImageUrl}
+        pathname="/"
       />
       <Head>
         <script
@@ -180,8 +178,6 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
 export const TagSEO = ({ title, description }: TagSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const router = useRouter()
-  const pathname = router.asPath
   return (
     <>
       <CommonSEO
@@ -190,13 +186,14 @@ export const TagSEO = ({ title, description }: TagSEOProps) => {
         ogType="website"
         ogImage={ogImageUrl}
         twImage={twImageUrl}
+        pathname="/tags"
       />
       <Head>
         <link
           rel="alternate"
           type="application/rss+xml"
           title={`${description} - RSS feed`}
-          href={`${siteMetadata.siteUrl}${pathname}/feed.xml`}
+          href={`${siteMetadata.siteUrl}/feed.xml`}
         />
       </Head>
     </>
@@ -216,6 +213,9 @@ export const BlogSEO = ({
 }: BlogSEOProps) => {
   const publishedAt = parseDateWithDefaultTimezone(date).toISOString()
   const modifiedAt = lastmod ? parseDateWithDefaultTimezone(lastmod).toISOString() : publishedAt
+  
+  // Extract pathname from URL
+  const pathname = url.replace(siteMetadata.siteUrl, '')
 
   let imagesArr: string[] =
     images.length === 0
@@ -283,6 +283,7 @@ export const BlogSEO = ({
         ogImage={featuredImages}
         twImage={twImageUrl}
         canonicalUrl={canonicalUrl}
+        pathname={pathname}
       />
       <Head>
         {date && <meta property="article:published_time" content={publishedAt} />}

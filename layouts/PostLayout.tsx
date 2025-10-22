@@ -73,6 +73,7 @@ export default function PostLayout({
         url={`${siteMetadata.siteUrl}/blog/${slug}`}
         authorDetails={authorDetails}
         summary={frontMatter.summary || `${title} - ${siteMetadata.title}`}
+        canonicalUrl={`${siteMetadata.siteUrl}/blog/${slug}`}
         {...frontMatter}
       />
       <ScrollTopAndComment />
