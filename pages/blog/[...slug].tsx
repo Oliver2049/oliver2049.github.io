@@ -88,6 +88,14 @@ export default function Blog({ post, authorDetails, prev, next }: BlogPostProps)
         <meta name="robots" content="follow, index" />
         <meta name="description" content={frontMatter.summary} />
         
+        {/* Additional meta tags for LinkedIn profile editor */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={frontMatter.title} />
+        <meta name="twitter:image:alt" content={frontMatter.title} />
+        <meta name="author" content="Oliver Doan" />
+        
         {/* Open Graph meta tags */}
         <meta property="og:url" content={url} />
         <meta property="og:type" content="article" />
@@ -109,6 +117,38 @@ export default function Blog({ post, authorDetails, prev, next }: BlogPostProps)
         {frontMatter.tags && frontMatter.tags.map((tag: string) => (
           <meta property="article:tag" content={tag} key={tag} />
         ))}
+        
+        {/* JSON-LD structured data for better LinkedIn compatibility */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": frontMatter.title,
+              "description": frontMatter.summary,
+              "image": ogImageUrl,
+              "datePublished": frontMatter.date ? new Date(frontMatter.date).toISOString() : undefined,
+              "dateModified": frontMatter.date ? new Date(frontMatter.date).toISOString() : undefined,
+              "author": {
+                "@type": "Person",
+                "name": "Oliver Doan",
+                "url": `${siteMetadata.siteUrl}/about`
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": siteMetadata.title,
+                "url": siteMetadata.siteUrl
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": url
+              },
+              "keywords": frontMatter.tags?.join(', ') || '',
+              "url": url
+            })
+          }}
+        />
         
         <link rel="canonical" href={url} />
       </Head>
