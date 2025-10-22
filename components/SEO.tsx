@@ -1,7 +1,5 @@
-'use client'
-
 import Head from 'next/head'
-import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import { parseDateWithDefaultTimezone } from '@/lib/datetime'
 
@@ -99,7 +97,8 @@ const CommonSEO = ({
   twImage,
   canonicalUrl,
 }: CommonSEOProps) => {
-  const pathname = usePathname()
+  const router = useRouter()
+  const pathname = router.asPath
   return (
     <Head>
       <title>{title}</title>
@@ -139,7 +138,8 @@ const CommonSEO = ({
 export const PageSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const pathname = usePathname()
+  const router = useRouter()
+  const pathname = router.asPath
 
   const websiteSchema: WebsiteSchema = {
     '@context': 'https://schema.org',
@@ -180,7 +180,8 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
 export const TagSEO = ({ title, description }: TagSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const pathname = usePathname()
+  const router = useRouter()
+  const pathname = router.asPath
   return (
     <>
       <CommonSEO
