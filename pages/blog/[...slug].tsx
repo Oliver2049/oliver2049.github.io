@@ -1,4 +1,5 @@
 import fs from 'fs'
+import Head from 'next/head'
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
@@ -8,6 +9,7 @@ import { ParsedUrlQuery } from 'querystring'
 import 'katex/dist/katex.min.css'
 import React from 'react'
 import { Post, BlogPostProps, convertToPosts } from '@/types'
+import siteMetadata from '@/data/siteMetadata'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -74,8 +76,42 @@ export const getStaticProps: GetStaticProps<BlogPostProps, SlugParams> = async (
 export default function Blog({ post, authorDetails, prev, next }: BlogPostProps): React.ReactNode {
   const { mdxSource, toc, frontMatter } = post
 
+  // Generate meta tags for static export
+  const url = `${siteMetadata.siteUrl}/blog/${frontMatter.slug}`
+  const ogImage = frontMatter.images?.[0] || frontMatter.image || siteMetadata.socialBanner
+  const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteMetadata.siteUrl}${ogImage}`
+  
   return (
     <>
+      <Head>
+        <title>{`${frontMatter.title} – ${siteMetadata.title}`}</title>
+        <meta name="robots" content="follow, index" />
+        <meta name="description" content={frontMatter.summary} />
+        
+        {/* Open Graph meta tags */}
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={siteMetadata.title} />
+        <meta property="og:description" content={frontMatter.summary} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:image" content={ogImageUrl} />
+        
+        {/* Twitter meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={siteMetadata.twitter} />
+        <meta name="twitter:creator" content={siteMetadata.twitter} />
+        <meta name="twitter:title" content={frontMatter.title} />
+        <meta name="twitter:description" content={frontMatter.summary} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        
+        {/* Article meta tags */}
+        {frontMatter.date && <meta property="article:published_time" content={new Date(frontMatter.date).toISOString()} />}
+        {frontMatter.tags && frontMatter.tags.map((tag: string) => (
+          <meta property="article:tag" content={tag} key={tag} />
+        ))}
+        
+        <link rel="canonical" href={url} />
+      </Head>
       {frontMatter.draft !== true ? (
         <MDXLayoutRenderer
           layout={frontMatter.layout || DEFAULT_LAYOUT}

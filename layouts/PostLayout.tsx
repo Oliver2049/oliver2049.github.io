@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -69,13 +68,6 @@ export default function PostLayout({
   const postUrl = `${siteMetadata.siteUrl}/blog/${slug}`
   return (
     <SectionContainer>
-      <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
-        authorDetails={authorDetails}
-        summary={frontMatter.summary || `${title} - ${siteMetadata.title}`}
-        canonicalUrl={`${siteMetadata.siteUrl}/blog/${slug}`}
-        {...frontMatter}
-      />
       <ScrollTopAndComment />
       <article>
         <div className="xl:divide-y xl:divide-gray-200">
