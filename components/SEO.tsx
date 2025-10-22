@@ -276,16 +276,26 @@ export const BlogSEO = ({
 
   return (
     <>
-      <CommonSEO
-        title={title}
-        description={summary}
-        ogType="article"
-        ogImage={featuredImages}
-        twImage={twImageUrl}
-        canonicalUrl={canonicalUrl}
-        pathname={pathname}
-      />
       <Head>
+        <title>{title}</title>
+        <meta name="robots" content="follow, index" />
+        <meta name="description" content={summary} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content={url} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={siteMetadata.title} />
+        <meta property="og:description" content={summary} />
+        <meta property="og:title" content={title} />
+        {featuredImages.map(({ url: imageUrl }) => (
+          <meta property="og:image" content={imageUrl} key={imageUrl} />
+        ))}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={siteMetadata.twitter} />
+        <meta name="twitter:creator" content={siteMetadata.twitter} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={summary} />
+        <meta name="twitter:image" content={twImageUrl} />
+        <link rel="canonical" href={canonicalUrl || url} />
         {date && <meta property="article:published_time" content={publishedAt} />}
         {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
         {tags && tags.map((tag) => <meta property="article:tag" content={tag} key={tag} />)}
