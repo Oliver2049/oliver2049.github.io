@@ -81,9 +81,9 @@ Open wf.msc → set Domain, Private, Public profiles to Off
 
 ### 3.1. Testing network connectivity
 
-Ping VM from local machine: ping ***VM Public IP*** to test connectivity 
+Ping VM from local machine: ping ***VM Public IP*** to test connectivity  
 
-![](/static/images/picture6.png)
+![](/static/images/picture80.png)
 
 The VM successfully replied to ICMP Echo Requests (ping), which means that the host is reachable and we can proceed to the next step (RDP login testing).
 
@@ -91,7 +91,7 @@ The VM successfully replied to ICMP Echo Requests (ping), which means that the h
 
 RDP login attempts: create fake username `employee`, fail login 3–4 times
 
-![](/static/images/picture7.png)
+![](/static/images/picture81.png)
 
 ### 3.3. Inspecting the logs
 
